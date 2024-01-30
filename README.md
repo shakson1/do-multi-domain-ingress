@@ -7,7 +7,8 @@ This guide provides step-by-step instructions to configure automatic TLS certifi
 - A Kubernetes cluster
 - `kubectl` command-line tool configured to communicate with your cluster
 - Cert-Manager installed in your cluster
-- Nginx Ingress Controller installed in your cluster
+- **Ingress Controller installed in your cluster**: Ensure you have an Ingress Controller, like Nginx or Traefik, installed. If you're using Nginx, you can follow the [official Nginx Ingress Controller installation guide](https://kubernetes.github.io/ingress-nginx/deploy/).
+- **DNS A Records**: Ensure you have DNS A records pointing to your Ingress Controller's external IP for each of the domains you want to secure with TLS. This is necessary for Let's Encrypt to verify domain ownership during the ACME challenge process.
 
 ## Step 1: Install Cert-Manager
 
@@ -153,4 +154,4 @@ To verify that the certificates have been successfully issued and are in use:
 
 ## Conclusion
 
-You have successfully configured your Kubernetes Ingress resources to automatically obtain and renew TLS certificates from Let's Encrypt using Cert-Manager. This setup
+You have successfully configured your Kubernetes Ingress resources to automatically obtain and renew TLS certificates from Let's Encrypt using Cert-Manager. This setup ensures secure, encrypted traffic to your services.
